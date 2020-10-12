@@ -2,16 +2,16 @@ class HabitsController < ApplicationController
 
     def create 
         habit = Habit.create(habit_params)
-        render json: HabitSerializer.new(habit)
+        render json: {habit: HabitSerializer.new(habit)}
     end
 
     def update
         habit = Habit.find(params[:id])
         habit.update(habit_params)
-        render json: HabitSerializer.new(habit)
+        render json: {habit: HabitSerializer.new(habit)}
     end
-
-    def delete
+    
+    def destroy
         habit = Habit.find(params[:id])
         habit.destroy
         render json: {success: 'success'}
