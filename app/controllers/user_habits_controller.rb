@@ -1,7 +1,7 @@
 class UserHabitsController < ApplicationController
 
     def create 
-        user_habit = UserHabits.create(user_habit_params)
+        user_habit = UserHabit.create(user_habit_params)
         render json: user_habit
     end
 
